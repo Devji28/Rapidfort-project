@@ -25,9 +25,9 @@ This project adheres to the provided rubric with containerized deployment using 
 
 3. **Hosting**:
    - **Frontend**: Hosted on **Vercel**.  
-     [Frontend Live Link](https://rapidfort-front-li19v3l7i-devji28s-projects.vercel.app/)
+     https://rapidfort-front.vercel.app/
    - **Backend**: Hosted on **Render**.  
-     [Backend Live Link](https://dashboard.render.com/web/srv-ct0qbve8ii6s73f8sdk0/deploys/dep-ct0r1nm8ii6s73f94h1g)
+     https://rapidfort-backend.onrender.com
 
 4. **Containerization**:
    - Backend and frontend are Dockerized and pushed to Docker Hub for seamless deployment.
