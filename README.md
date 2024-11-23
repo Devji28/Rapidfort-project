@@ -206,7 +206,7 @@ echo "Backend: http://localhost:5000"
 ---
 
 ## Contributors
-- [Your Name]
-- [Your Email] 
+- Dev Satija
+- satijadev8@gmail.com
 
 For any questions, feel free to reach out!
