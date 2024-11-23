@@ -2,211 +2,214 @@
 
 ## Overview
 
-This is a web application designed to process Word documents (.docx) and convert them to PDF. The application allows users to upload Word files, view file metadata, and download the converted PDF. It supports password protection for PDFs and includes a modern, intuitive user interface.
+This web application processes Word documents (.docx) and converts them to PDF, with additional support for password protection, file metadata viewing, and PDF preview/download functionalities. 
 
-### Features
-- Upload Word documents (.doc and .docx formats).
-- View file metadata (file name, size, etc.).
-- Convert Word documents to PDFs.
-- Preview the converted PDF in the browser.
-- Download the converted PDF.
-- Add password protection to the PDFs.
-- Light/Dark theme support for enhanced user experience.
-- Backend hosted on Render and frontend hosted on Vercel.
+This project adheres to the provided rubric with containerized deployment using Docker and GitHub Actions for CI/CD, making it ready for cloud deployment and scalability.
 
 ---
 
-## Hosted Endpoints
-### Backend
-- The backend is hosted on **Render**:
-  [https://dashboard.render.com/web/srv-ct0qbve8ii6s73f8sdk0/deploys/dep-ct0r1nm8ii6s73f94h1g](https://dashboard.render.com/web/srv-ct0qbve8ii6s73f8sdk0/deploys/dep-ct0r1nm8ii6s73f94h1g)
+## Features
 
-### Frontend
-- The frontend is hosted on **Vercel**:
-  https://rapidfort-front.vercel.app/
+1. **Core Functionality**:
+   - Upload Word documents (.doc or .docx).
+   - View file metadata (name, size).
+   - Convert Word documents to secure PDFs.
+   - Preview the converted PDF directly on the web page.
+   - Download the PDF manually after conversion.
+   - Password-protect the converted PDFs (optional).
+
+2. **UI Enhancements**:
+   - Intuitive user interface with Light/Dark mode toggle.
+   - Drag-and-drop area for easy file uploads.
+   - Modern responsive design.
+
+3. **Hosting**:
+   - **Frontend**: Hosted on **Vercel**.  
+     [Frontend Live Link](https://rapidfort-front-li19v3l7i-devji28s-projects.vercel.app/)
+   - **Backend**: Hosted on **Render**.  
+     [Backend Live Link](https://dashboard.render.com/web/srv-ct0qbve8ii6s73f8sdk0/deploys/dep-ct0r1nm8ii6s73f94h1g)
+
+4. **Containerization**:
+   - Backend and frontend are Dockerized and pushed to Docker Hub for seamless deployment.
+     - **Backend Docker Image**: [coollip/rapidfort-backend](https://hub.docker.com/r/coollip/rapidfort-backend)
+     - **Frontend Docker Image**: [coollip/rapidfort-frontend](https://hub.docker.com/r/coollip/rapidfort-frontend)
+
+5. **Kubernetes**:
+   - Kubernetes manifests included for orchestrating deployments.
 
 ---
 
 ## Technologies Used
+
+### **Frontend**:
+- **React**: UI development.
+- **CSS**: Styling the user interface.
+- **Vercel**: Hosting the frontend application.
+
+### **Backend**:
+- **Node.js**: Backend server with API endpoints.
+- **Express**: Handling HTTP requests and file uploads.
+- **Multer**: File upload management.
+- **LibreOffice**: Conversion of Word files to PDF.
+- **Hummus-Recipe**: Adding password protection to PDFs.
+- **Render**: Hosting the backend service.
+
+### **CI/CD**:
+- **GitHub Actions**: Automated Docker builds and deployments.
+
+### **Containerization**:
+- **Docker**: For building and deploying containerized images.
+- **Kubernetes**: For orchestrating containerized applications.
+
+---
+
+## Hosted Endpoints
+
 ### Frontend
-- **React**: For building the user interface.
-- **CSS**: For styling the application.
-- **Vercel**: For hosting the frontend.
+Hosted on **Vercel**:  
+[RapidFort Frontend](https://rapidfort-front-li19v3l7i-devji28s-projects.vercel.app/)
 
 ### Backend
-- **Node.js**: For handling server-side logic.
-- **Express**: For API creation and handling file uploads.
-- **Multer**: For managing file uploads.
-- **LibreOffice**: For converting Word documents to PDF.
-- **Hummus-Recipe**: For adding password protection to PDFs.
-- **Render**: For hosting the backend.
+Hosted on **Render**:  
+[RapidFort Backend](https://dashboard.render.com/web/srv-ct0qbve8ii6s73f8sdk0/deploys/dep-ct0r1nm8ii6s73f94h1g)
 
-### Containerization
-- **Docker**: The application is Dockerized for easy deployment and scalability.
+### Docker Hub Images
+- **Backend**: [coollip/rapidfort-backend](https://hub.docker.com/r/coollip/rapidfort-backend)
+- **Frontend**: [coollip/rapidfort-frontend](https://hub.docker.com/r/coollip/rapidfort-frontend)
 
 ---
 
-## Deployment Pipeline
-1. **GitHub Repository**: Store the project in a GitHub repository.
-2. **Documentation**: Detailed project documentation and README.
-3. **Dockerization**: The application is Dockerized using a `Dockerfile`.
-4. **GitHub Actions**: Pipeline to build the Docker image automatically.
-5. **Bash Script**: Instructions for running the Docker container locally.
-6. **Kubernetes**: Kubernetes manifest files for hosting the web server.
+## Deployment Instructions
 
----
-
-## Project Structure
-```
-📁 rapidfort-project
-├── 📁 backend
-│   ├── server.js         # Backend logic for file conversion and password protection
-│   ├── Dockerfile        # Dockerfile for containerization
-│   ├── package.json      # Backend dependencies
-│   ├── uploads/          # Directory for uploaded files
-│   ├── outputs/          # Directory for converted files
-│   └── README.md         # Backend-specific documentation
-├── 📁 frontend
-│   ├── public/
-│   │   ├── logo.png      # Application logo
-│   │   ├── word-icon.png # Icon for Word documents
-│   ├── src/
-│   │   ├── App.js        # React application entry point
-│   │   ├── WordToPdf.js  # Main component for file conversion
-│   │   ├── WordToPdf.css # Stylesheet for the UI
-│   ├── package.json      # Frontend dependencies
-│   └── README.md         # Frontend-specific documentation
-├── 📁 kubernetes
-│   ├── deployment.yaml   # Kubernetes deployment file
-│   ├── service.yaml      # Kubernetes service file
-│   └── README.md         # Kubernetes documentation
-└── README.md             # Root README for the entire project
-```
-
----
-
-## How to Run the Project Locally
-
-### Prerequisites
-- Install **Node.js** (v16+).
-- Install **Docker**.
-- Install **LibreOffice** (if running the backend locally).
-- Install **Kubernetes CLI** (if deploying on Kubernetes).
-
-### Steps
-1. **Clone the repository**:
+### **Local Development**
+1. Clone the repository:
    ```bash
    git clone https://github.com/your-repo/rapidfort-project.git
    cd rapidfort-project
    ```
 
-2. **Run the backend**:
+2. Start the backend:
    ```bash
    cd backend
    npm install
    node server.js
    ```
 
-3. **Run the frontend**:
+3. Start the frontend:
    ```bash
    cd frontend
    npm install
    npm start
    ```
 
-4. **Access the application**:
+4. Access the application:
    - Frontend: [http://localhost:3000](http://localhost:3000)
    - Backend: [http://localhost:5000](http://localhost:5000)
 
 ---
 
-## Docker Instructions
+### **Docker Deployment**
 
-### Build Docker Images
-- Backend:
-  ```bash
-  docker build -t rapidfort-backend ./backend
-  ```
-- Frontend:
-  ```bash
-  docker build -t rapidfort-frontend ./frontend
-  ```
+1. **Build Docker Images**:
+   - Backend:
+     ```bash
+     docker build -t coollip/rapidfort-backend ./backend
+     ```
+   - Frontend:
+     ```bash
+     docker build -t coollip/rapidfort-frontend ./frontend
+     ```
 
-### Run Containers
-- Backend:
-  ```bash
-  docker run -p 5000:5000 rapidfort-backend
-  ```
-- Frontend:
-  ```bash
-  docker run -p 3000:3000 rapidfort-frontend
-  ```
+2. **Run Docker Containers**:
+   - Backend:
+     ```bash
+     docker run -p 5000:5000 coollip/rapidfort-backend
+     ```
+   - Frontend:
+     ```bash
+     docker run -p 3000:3000 coollip/rapidfort-frontend
+     ```
 
 ---
 
-## Kubernetes Deployment
+### **Kubernetes Deployment**
+
 1. Apply the manifest files:
    ```bash
    kubectl apply -f kubernetes/deployment.yaml
    kubectl apply -f kubernetes/service.yaml
    ```
 
-2. Access the application using the exposed service endpoint.
+2. Access the application using the Kubernetes service.
 
 ---
 
-## Bash Script for Docker
-Create a script (`run.sh`) to automate container setup:
+### **GitHub Actions**
+
+- The repository includes a GitHub Actions pipeline to:
+  - Build the Docker images for the backend and frontend.
+  - Push the images to Docker Hub.
+
+---
+
+### **Bash Script**
+Create a script `run.sh` to automate Docker setup:
 ```bash
 #!/bin/bash
 
 echo "Building backend Docker image..."
-docker build -t rapidfort-backend ./backend
+docker build -t coollip/rapidfort-backend ./backend
 
 echo "Building frontend Docker image..."
-docker build -t rapidfort-frontend ./frontend
+docker build -t coollip/rapidfort-frontend ./frontend
 
 echo "Running backend container..."
-docker run -d -p 5000:5000 rapidfort-backend
+docker run -d -p 5000:5000 coollip/rapidfort-backend
 
 echo "Running frontend container..."
-docker run -d -p 3000:3000 rapidfort-frontend
+docker run -d -p 3000:3000 coollip/rapidfort-frontend
 
-echo "Application is running on:"
+echo "Application is running:"
 echo "Frontend: http://localhost:3000"
 echo "Backend: http://localhost:5000"
 ```
 
 ---
 
-## Key Features Implemented
-1. **Exception Handling**:
-   - Backend includes detailed exception handling for file uploads and conversion errors.
-   - Alerts for the user in case of errors during file conversion.
+## Rubric Alignment
 
-2. **Modern UI**:
-   - Responsive design with light/dark mode toggle.
-   - Preview functionality for converted PDFs.
+1. **Repo and Hosting**:
+   - Project stored on GitHub and hosted on **Render** (backend) and **Vercel** (frontend).
 
-3. **Documentation**:
-   - Comprehensive README and comments in the codebase.
+2. **Documentation**:
+   - Detailed project structure, steps, and usage instructions provided.
 
-4. **Dockerization**:
-   - Backend and frontend are fully containerized for seamless deployment.
+3. **Exception Handling**:
+   - Backend handles invalid file formats, conversion errors, and server-side exceptions.
+   - Frontend provides user-friendly error messages for failed operations.
 
-5. **Kubernetes**:
-   - Manifest files for deploying the application in a Kubernetes cluster.
+4. **UI**:
+   - Responsive, modern design with Light/Dark theme support.
+
+5. **Dockerized Application**:
+   - Backend and frontend are Dockerized with images pushed to Docker Hub.
+
+6. **GitHub Actions**:
+   - CI/CD pipeline for building and deploying Docker images.
+
+7. **Kubernetes**:
+   - Manifest files included for deployment.
 
 ---
 
 ## Submission
-- **Submission Deadline**: 6:00 PM, 23/11/24 (Saturday)
-- **Submission Link**: Provide the link or QR code for submission. 
+- **Deadline**: 6:00 PM, 23/11/24 (Saturday)
+- **Submission Link**: Use the QR code or link provided in the instructions.
 
 ---
 
 ## Contributors
-- Dev Satija
-- satijadev8@gmail.com
+- **Dev Satija**  
+  satijadev8@gmail.com 
 
-For any questions, feel free to reach out!
+For questions or issues, feel free to contact me!
