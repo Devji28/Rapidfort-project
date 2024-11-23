@@ -107,7 +107,7 @@ Hosted on **Render**:
    - Backend: [http://localhost:5000](http://localhost:5000)
 
 ---
-###Project Structure
+Project Structure
 php
 Copy code
 📁 rapidfort-project
