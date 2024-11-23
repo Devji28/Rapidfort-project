@@ -1,0 +1,365 @@
+/* General styles */
+:root {
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --accent-color: #007bff;
+  --card-bg-color: white;
+  --border-color: #ddd;
+  --button-bg: #007bff;
+  --button-hover-bg: #0056b3;
+  --success-color: #28a745;
+  --success-hover-color: #218838;
+  --spinner-color: #007bff;
+}
+
+/* Dark mode overrides */
+.dark-mode {
+  --bg-color: #1d1f21;
+  --text-color: #f9f9f9;
+  --accent-color: #00aaff;
+  --card-bg-color: #2c2f33;
+  --border-color: #444;
+  --button-bg: #00aaff;
+  --button-hover-bg: #0088cc;
+  --success-color: #28a745;
+  --success-hover-color: #218838;
+  --spinner-color: #00aaff;
+}
+
+/* Apply the colors */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Main container */
+.converter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Main box */
+.main-box {
+  background-color: var(--card-bg-color);
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+/* Header */
+.converter-header {
+  text-align: center;
+  padding-bottom: 20px;
+  color: var(--text-color);
+}
+
+.converter-header img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.converter-header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: var(--text-color);
+}
+
+.converter-header .subtitle {
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+/* Dark mode toggle */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle span {
+  margin-left: 10px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color);
+  border-radius: 20px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--card-bg-color);
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--accent-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+/* Drag-and-Drop Area */
+.drag-and-drop-area {
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  background-color: var(--card-bg-color);
+  padding: 40px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+}
+
+.drag-and-drop-area:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.drag-and-drop-area.dragging {
+  border-color: var(--accent-color);
+}
+
+.drag-drop-icon {
+  width: 70px;
+  margin-bottom: 20px;
+}
+
+.drag-and-drop-area p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+/* Browse Button */
+.browse-button {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--button-bg);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.3s;
+}
+
+.browse-button:hover {
+  background-color: var(--button-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* File Details */
+.file-details {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.file-details strong {
+  font-weight: bold;
+  color: var(--text-color);
+}
+/* Remove bullet points from file details list */
+.file-details ul {
+  list-style-type: none; /* Removes the bullet points */
+  padding: 0; /* Removes padding */
+  margin: 0; /* Removes margin */
+}
+
+/* Add spacing for file list items */
+.file-details ul li {
+  margin-bottom: 5px; /* Adds spacing between file names */
+}
+
+/* Password Input */
+.password-input {
+  margin-top: 20px;
+}
+
+.password-input label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.password-input input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  color: var(--text-color);
+  background-color: var(--card-bg-color);
+}
+
+/* Convert Button */
+.convert-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: var(--success-color);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.3s;
+}
+
+.convert-button:hover {
+  background-color: var(--success-hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.convert-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* PDF Preview */
+.pdf-preview {
+  margin-top: 30px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.pdf-preview h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.pdf-preview iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Download Button */
+.download-button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.3s;
+}
+
+.download-button:hover {
+  background-color: var(--button-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  border: 8px solid var(--card-bg-color);
+  border-top: 8px solid var(--spinner-color);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-box {
+    padding: 20px;
+  }
+
+  .converter-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .converter-header img {
+    width: 80px;
+  }
+
+  .drag-and-drop-area {
+    padding: 30px;
+  }
+
+  .drag-drop-icon {
+    width: 50px;
+  }
+
+  .password-input input {
+    width: 100%;
+  }
+
+  .convert-button {
+    width: 100%;
+  }
+}
+
+/* Global Inputs */
+input, textarea {
+  color: var(--text-color);
+  background-color: var(--card-bg-color);
+}
