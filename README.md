@@ -23,7 +23,7 @@ This is a web application designed to process Word documents (.docx) and convert
 
 ### Frontend
 - The frontend is hosted on **Vercel**:
-  [https://rapidfort-front-li19v3l7i-devji28s-projects.vercel.app/](https://rapidfort-front-li19v3l7i-devji28s-projects.vercel.app/)
+  https://rapidfort-front.vercel.app/
 
 ---
 
