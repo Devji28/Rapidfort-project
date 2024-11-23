@@ -107,32 +107,6 @@ Hosted on **Render**:
    - Backend: [http://localhost:5000](http://localhost:5000)
 
 ---
-Project Structure
-php
-Copy code
-📁 rapidfort-project
-├── 📁 backend
-│   ├── server.js         # Backend logic for file conversion and password protection
-│   ├── Dockerfile        # Dockerfile for containerization
-│   ├── package.json      # Backend dependencies
-│   ├── uploads/          # Directory for uploaded files
-│   ├── outputs/          # Directory for converted files
-│   └── README.md         # Backend-specific documentation
-├── 📁 frontend
-│   ├── public/
-│   │   ├── logo.png      # Application logo
-│   │   ├── word-icon.png # Icon for Word documents
-│   ├── src/
-│   │   ├── App.js        # React application entry point
-│   │   ├── WordToPdf.js  # Main component for file conversion
-│   │   ├── WordToPdf.css # Stylesheet for the UI
-│   ├── package.json      # Frontend dependencies
-│   └── README.md         # Frontend-specific documentation
-├── 📁 kubernetes
-│   ├── deployment.yaml   # Kubernetes deployment file
-│   ├── service.yaml      # Kubernetes service file
-│   └── README.md         # Kubernetes documentation
-└── README.md             # Root README for the entire project
 
 ### **Docker Deployment**
 
